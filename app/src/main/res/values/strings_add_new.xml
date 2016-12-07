@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_new_note">Add new note</string>
+    <string name="add_new_note_top">To the top</string>
+    <string name="add_new_note_bottom">To the bottom</string>
+    <string name="add_new_link_title_also">Also add the title of link</string>
+    <string name="add_new_note_optional">Optional</string>
+    <string name="add_new_note_option_title">Add new note:</string>
+    <string name="add_new_note_notice_title">Notice</string>
+    <string name="add_new_note_notice_message">You can restore [Optional] option in [Add new note location] setting</string>
+    <string name="add_new_note_title">Add new note</string>
+    <string name="add_new_note_message">Note content:</string>
+    <string name="add_new_note_button_add">Add</string>
+    <string name="add_new_note_confirm_save">The new note has contained content, do you want to save it?</string>
+    <string name="dialog_add_new_option_title">Set the operation of selected file:</string>
+    <string name="dialog_add_new_single">Add single file</string>
+    <string name="dialog_add_new_multiple">Add a directory of local files</string>
+    <string name="note_text">text</string>
+    <string name="note_camera_image">Camera image</string>
+    <string name="note_camera_video">Camera video</string>
+    <string name="note_ready_image">Existing image</string>
+    <string name="note_ready_video">Existing video</string>
+    <string name="note_audio">Audio</string>
+    <string name="note_youtube_link">YouTube Link</string>
+    <string name="note_web_link">Web Link</string>
+    <string name="note_take_picture">Take Picture</string>
+    <string name="note_take_picture_OK">finished</string>
+    <string name="note_cancel_add_new">Cancel</string>
+    <string name="note_take_picture_continue_dlg_title">Continue Taking Picture?</string>
+    <string name="note_ready_picture_continue_dlg_title">Continue selecting ready picture?</string>
+    <string name="add_new_chooser_audio">Select audio</string>    
+    <string name="add_new_chooser_image">Select image</string>    
+    <string name="add_new_chooser_video">Select video</string>    
+    <string name="audio_message_no_media_file_is_found">No media file is found</string>
+    <string name="audio_message_could_not_open_file">Could not open file</string>
+    <string name="audio_message_searching_media">Searching meida &#8230;</string>
+    <string name="audio_message_preparing_to_play">Preparing to play &#8230;</string>
+    <string name="audio_message_preparing_time_out">Preparing has timed out</string>
+    <string name="audio_file_not_found">Audio file not found or not selected</string>
+</resources>

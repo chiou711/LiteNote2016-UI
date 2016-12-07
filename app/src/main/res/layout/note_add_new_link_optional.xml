@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <RadioGroup
+        android:id="@+id/radioGroup_new_at"
+        android:layout_width="match_parent"
+        android:layout_height="191dp" >
+
+	<RadioButton
+	    android:id="@+id/radio_new_at_top"
+	    android:layout_width="match_parent"
+	    android:layout_height="50dp"
+	    android:text="@string/add_new_note_top" />
+	
+	<RadioButton
+	    android:id="@+id/radio_new_at_bottom"
+	    android:layout_width="match_parent"
+	    android:layout_height="50dp"
+	    android:text="@string/add_new_note_bottom" />
+
+    <View android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="#4f4f4f"
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"/>
+
+    <CheckedTextView
+        android:id="@+id/enable_link_title_save"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/add_new_link_title_also"
+        android:drawableLeft="?android:attr/listChoiceIndicatorMultiple"
+        android:clickable="true"
+        android:paddingLeft="5dp"
+        android:gravity="center_vertical" />
+		<!--
+                android:drawableLeft="?android:attr/listChoiceIndicatorMultiple"
+                android:checkMark=   "?android:attr/listChoiceIndicatorMultiple"
+                android:checkMark="?android:attr/textCheckMark"
+         -->
+	</RadioGroup>
+</ScrollView>

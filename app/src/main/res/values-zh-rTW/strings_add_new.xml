@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_new_note">新增記事</string>
+    <string name="add_new_note_top">到頂部</string>
+    <string name="add_new_note_bottom">到底部</string>
+    <string name="add_new_link_title_also">同時添加連結的標題</string>
+    <string name="add_new_note_optional">可選的</string>
+    <string name="add_new_note_option_title">新增記事：</string>
+    <string name="add_new_note_notice_title">注意</string>
+    <string name="add_new_note_notice_message">您可以在[新增筆記的位置]設定中恢復[可選的]選項</string>
+    <string name="add_new_note_title">新增記事</string>
+    <string name="add_new_note_message">記事內容:</string>
+    <string name="add_new_note_button_add">新增</string>
+    <string name="add_new_note_confirm_save">已經有內容在新記事中，您想要保存它嗎?</string>
+    <string name="dialog_add_new_option_title">設定所選文件的操作：</string>
+    <string name="dialog_add_new_single">增加單一文件</string>
+    <string name="dialog_add_new_multiple">增加一個目錄的本地文件</string>
+    <string name="note_text">文字</string>
+    <string name="note_camera_image">照相機圖片</string>
+    <string name="note_camera_video">照相機影片</string>
+    <string name="note_ready_image">現有的圖片</string>
+    <string name="note_ready_video">現有的影片</string>
+    <string name="note_audio">音訊</string>    
+    <string name="note_youtube_link">YouTube連結</string>
+    <string name="note_web_link">網頁連結</string>
+    <string name="note_take_picture">拍照</string>
+    <string name="note_take_picture_OK">完成</string>
+    <string name="note_cancel_add_new">取消</string>
+    <string name="note_take_picture_continue_dlg_title">繼續拍照？</string>
+    <string name="note_ready_picture_continue_dlg_title">繼續選擇現成的圖片?</string>
+    <string name="add_new_chooser_audio">選擇音訊</string>    
+    <string name="add_new_chooser_image">選擇圖片</string>    
+    <string name="add_new_chooser_video">選擇影片</string>
+    <string name="audio_message_no_media_file_is_found">沒有找到媒體檔</string>
+    <string name="audio_message_could_not_open_file">無法開啟檔案</string>
+    <string name="audio_message_searching_media">尋找媒體 &#8230;</string>
+    <string name="audio_message_preparing_to_play">準備播放 &#8230;</string>
+    <string name="audio_message_preparing_time_out">準備已經超時</string>
+    <string name="audio_file_not_found">找不到或未選擇音訊檔案</string>
+</resources>

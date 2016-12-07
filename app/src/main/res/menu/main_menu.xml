@@ -1,0 +1,286 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- main group -->
+    <group
+        android:id="@+id/group0"
+        android:title="notes"
+        android:showAsAction="always|withText"
+        android:orderInCategory="0">
+    <!-- Add note -->
+    <item
+        android:id="@+id/ADD_NEW_NOTE"
+        android:orderInCategory="0"
+		android:showAsAction="always|withText"
+        android:title="@string/add_new_note"
+		android:icon="@drawable/ic_input_add">
+    <!-- Add note sub menu -->
+	<!--<menu>-->
+        <!--<item-->
+            <!--android:id="@+id/ADD_TEXT"-->
+            <!--android:orderInCategory="0"-->
+            <!--android:showAsAction="never"-->
+            <!--android:title="@string/note_text"-->
+            <!--android:icon="@android:drawable/ic_menu_edit"/>-->
+        <!--<item-->
+            <!--android:id="@+id/ADD_NEW_IMAGE"-->
+            <!--android:orderInCategory="1"-->
+            <!--android:showAsAction="never"-->
+            <!--android:title="@string/note_camera_image"-->
+            <!--android:icon="@android:drawable/ic_menu_camera"/>-->
+        <!--<item-->
+            <!--android:id="@+id/ADD_OLD_PICTURE"-->
+            <!--android:orderInCategory="2"-->
+            <!--android:showAsAction="never"-->
+            <!--android:title="@string/note_ready_image"-->
+            <!--android:icon="@android:drawable/ic_menu_gallery"/>-->
+        <!--<item-->
+            <!--android:id="@+id/ADD_AUDIO"-->
+            <!--android:orderInCategory="3"-->
+            <!--android:showAsAction="never"-->
+            <!--android:title="@string/note_audio"-->
+            <!--android:icon="@drawable/ic_audio_unselected"/>-->
+        <!--<item-->
+            <!--android:id="@+id/ADD_NEW_VIDEO"-->
+            <!--android:orderInCategory="4"-->
+            <!--android:showAsAction="never"-->
+            <!--android:title="@string/note_camera_video"-->
+            <!--android:icon="@android:drawable/presence_video_online"/>-->
+        <!--<item-->
+            <!--android:id="@+id/ADD_OLD_VIDEO"-->
+            <!--android:orderInCategory="5"-->
+            <!--android:showAsAction="never"-->
+            <!--android:title="@string/note_ready_video"-->
+            <!--android:icon="@drawable/ic_ready_video"/>-->
+        <!--<item-->
+            <!--android:id="@+id/ADD_YOUTUBE_LINK"-->
+            <!--android:orderInCategory="6"-->
+            <!--android:showAsAction="never"-->
+            <!--android:title="@string/note_youtube_link"-->
+            <!--android:icon="@android:drawable/ic_menu_share"/>-->
+        <!--<item-->
+            <!--android:id="@+id/ADD_WEB_LINK"-->
+            <!--android:orderInCategory="7"-->
+            <!--android:showAsAction="never"-->
+            <!--android:title="@string/note_web_link"-->
+            <!--android:icon="@android:drawable/ic_menu_share"/>-->
+	<!--</menu>-->
+	</item>
+
+    <!-- Play -->
+    <item
+        android:id="@+id/PLAY"
+        android:orderInCategory="1"
+        android:showAsAction="always|withText"
+        android:title="Play"
+        android:icon="@android:drawable/ic_menu_slideshow">
+
+    <!-- Play sub menu -->
+    <menu xmlns:android="http://schemas.android.com/apk/res/android" >
+        <item
+            android:id="@+id/PLAY_OR_STOP_MUSIC"
+            android:orderInCategory="0"
+            android:showAsAction="never"
+            android:title="@string/menu_button_play_audio"
+            android:icon="@drawable/ic_media_play"/>
+        <item
+            android:id="@+id/SLIDE_SHOW"
+            android:orderInCategory="1"
+            android:showAsAction="never"
+            android:title="@string/menu_button_slide_show"
+            android:icon="@drawable/ic_menu_play_clip"/>
+        <item
+            android:id="@+id/GALLERY"
+            android:orderInCategory="2"
+            android:showAsAction="never"
+            android:title="@string/gallery"
+            android:icon="@android:drawable/ic_menu_gallery"/>
+    </menu>
+    </item>
+
+    <!-- checked operation -->
+    <item
+        android:id="@+id/HANDLE_CHECKED_NOTES"
+        android:orderInCategory="2"
+        android:showAsAction="always|withText"
+        android:title="@string/checked_notes"
+        android:icon="@drawable/ic_menu_mark">
+
+    <!-- checked operation sub menu -->
+    <menu xmlns:android="http://schemas.android.com/apk/res/android" >
+        <item
+            android:id="@+id/CHECK_ALL"
+            android:orderInCategory="0"
+            android:showAsAction="always"
+            android:title="@string/checked_notes_check_all"
+            android:icon="@drawable/btn_check_on_holo_dark"/>
+        <item
+            android:id="@+id/UNCHECK_ALL"
+            android:orderInCategory="1"
+            android:showAsAction="always"
+            android:title="@string/checked_notes_uncheck_all"
+            android:icon="@drawable/btn_check_off_holo_dark"/>
+        <item
+            android:id="@+id/INVERT_SELECTED"
+            android:orderInCategory="2"
+            android:showAsAction="always"
+            android:title="@string/checked_notes_invert_selected"
+            android:icon="@drawable/btn_check_on_focused_holo_dark"/>
+        <item
+            android:id="@+id/MOVE_CHECKED_NOTE"
+            android:orderInCategory="3"
+            android:showAsAction="always"
+            android:title="@string/checked_notes_move_to"
+            android:icon="@drawable/ic_menu_goto"/>
+        <item
+            android:id="@+id/COPY_CHECKED_NOTE"
+            android:orderInCategory="4"
+            android:showAsAction="always"
+            android:title="@string/checked_notes_copy_to"
+            android:icon="@drawable/ic_menu_copy_holo_dark"/>
+        <item
+            android:id="@+id/MAIL_CHECKED_NOTE"
+            android:orderInCategory="5"
+            android:showAsAction="always"
+            android:title="@string/mail_notes_btn"
+            android:icon="@android:drawable/ic_menu_send"/>
+        <item
+            android:id="@+id/DELETE_CHECKED_NOTE"
+            android:orderInCategory="6"
+            android:showAsAction="always"
+            android:title="@string/checked_notes_delete"
+            android:icon="@drawable/ic_menu_clear_playlist"/>
+    </menu>
+    </item>
+
+    <!-- more -->
+    <item
+        android:id="@+id/options"
+        android:orderInCategory="3"
+        android:showAsAction="always|withText"
+        android:title="@string/options"
+        android:icon="@drawable/ic_menu_moreoverflow">
+
+    <!-- more sub menu -->
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <!-- Page operation -->
+        <item
+            android:id="@+id/page_operation"
+            android:orderInCategory="1"
+            android:showAsAction="always|withText"
+            android:title="@string/page_operation"
+            >
+        <menu xmlns:android="http://schemas.android.com/apk/res/android">
+            <item
+                android:id="@+id/ADD_NEW_PAGE"
+                android:orderInCategory="1"
+                android:showAsAction="never"
+                android:title="@string/add_new_page"
+                android:icon="@drawable/ic_menu_add_new_page"/>
+            <item
+                android:id="@+id/CHANGE_PAGE_COLOR"
+                android:orderInCategory="2"
+                android:showAsAction="never"
+                android:title="@string/change_page_color"
+                android:icon="@drawable/ic_color_a"/>
+            <item
+                android:id="@+id/SHIFT_PAGE"
+                android:orderInCategory="3"
+                android:showAsAction="never"
+                android:title="@string/rearrange_page"
+                android:icon="@drawable/ic_dragger_horizontal"/>
+        </menu>
+        </item>
+
+        <!-- Note operation -->
+        <item
+            android:id="@+id/note_operation"
+            android:orderInCategory="2"
+            android:showAsAction="always|withText"
+            android:title="@string/note_operation"
+            >
+        <menu xmlns:android="http://schemas.android.com/apk/res/android">
+            <item
+                android:id="@+id/ENABLE_NOTE_DRAG_AND_DROP"
+                android:orderInCategory="1"
+                android:showAsAction="never"
+                android:title="@string/draggable_no"
+                android:icon="@drawable/ic_dragger_off"/>
+            <item
+                android:id="@+id/SHOW_BODY"
+                android:orderInCategory="2"
+                android:showAsAction="never"
+                android:title="@string/preview_note_body_no"
+                android:icon="@drawable/ic_menu_collapse"/>
+        </menu>
+        </item>
+
+        <!-- backup operation -->
+        <item
+            android:id="@+id/backup_operation"
+            android:orderInCategory="3"
+            android:showAsAction="always|withText"
+            android:title="@string/backup_operation"
+            >
+        <menu xmlns:android="http://schemas.android.com/apk/res/android">
+            <item
+                android:id="@+id/EXPORT_TO_SD_CARD"
+                android:orderInCategory="1"
+                android:showAsAction="never"
+                android:title="@string/config_export_SDCard_title"
+                android:icon="@android:drawable/ic_menu_save"/>
+            <item
+                android:id="@+id/IMPORT_FROM_SD_CARD"
+                android:orderInCategory="2"
+                android:showAsAction="never"
+                android:title="@string/config_import_SDCard_entry"
+                android:icon="@android:drawable/ic_menu_revert"/>
+            <item
+                android:id="@+id/SEND_PAGES"
+                android:orderInCategory="3"
+                android:showAsAction="never"
+                android:title="@string/mail_notes_title"
+                android:icon="@android:drawable/ic_menu_send"/>
+        </menu>
+        </item>
+
+        <!-- Config -->
+        <item
+            android:id="@+id/CONFIG_PREF"
+            android:orderInCategory="4"
+            android:showAsAction="never"
+            android:title="@string/settings_operation"
+            />
+    </menu>
+    </item>
+    </group>
+
+    <!-- folder group -->
+    <group
+        android:id="@+id/group1"
+        android:title="folder"
+        android:showAsAction="always|withText"
+        android:orderInCategory="1">
+    <item
+        android:id="@+id/ADD_FOLDER_OPTIONS"
+        android:orderInCategory="0"
+        android:showAsAction="always|withText"
+        android:title="@string/options"
+        android:icon="@android:drawable/ic_menu_more">
+
+    <!-- more sub menu -->
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/ADD_NEW_FOLDER"
+            android:orderInCategory="0"
+            android:showAsAction="never"
+            android:title="@string/add_new_drawer"
+            android:icon="@drawable/ic_menu_add_new_page"/>
+        <item
+            android:id="@+id/ENABLE_FOLDER_DRAG_AND_DROP"
+            android:orderInCategory="1"
+            android:showAsAction="never"
+            android:title="@string/draggable_yes"
+            android:icon="@drawable/ic_dragger_on"/>
+    </menu>
+    </item>
+    </group>
+</menu>

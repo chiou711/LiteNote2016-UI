@@ -1,0 +1,73 @@
+<android.support.v4.app.FragmentTabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:layout_marginTop="3dp">
+
+    <!-- fragment tab host -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <!-- tabs -->
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="wrap_content"
+            android:layout_height="68dp"/>
+        
+        <!-- tab content -->
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+        
+        <!-- real tab content -->
+        <LinearLayout
+            android:id="@+id/realtabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <!-- list view -->
+            <com.mobeta.android.dslv.DragSortListView
+                android:id="@+id/list1"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:divider="@android:color/transparent"
+  				android:dividerHeight="5dp"
+				android:layout_margin="5dp"
+  				android:drawSelectorOnTop="true"
+                android:minHeight="40dp" />
+			<ProgressBar
+	            android:id="@+id/list1_progress"
+	            android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+	            android:layout_gravity="center"
+	            android:visibility="gone"
+	            android:indeterminateDrawable="@drawable/spinner"
+	            />
+		    			
+			<View android:layout_width="match_parent" android:layout_height="2dip" android:background="#222222" />	        
+	        
+	        <!-- footer page info -->
+            <TextView
+                android:id="@+id/footerText"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="12sp"
+				android:maxLines="1"
+				android:background="@drawable/bg_gray_border" />
+
+			<View android:layout_width="match_parent" android:layout_height="2dip" android:background="#222222" />
+
+       	    <!-- footer audio control -->
+			<include layout = "@layout/page_view_portrait_audio_footer"/>
+        	
+       </LinearLayout> <!-- end: real tab content -->
+    </LinearLayout> <!-- end: fragment tab host -->
+</android.support.v4.app.FragmentTabHost>

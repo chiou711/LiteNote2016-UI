@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+<LinearLayout 
+    android:id="@+id/addAudioOptional"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:orientation="vertical">   
+    
+    <!-- Single --> 
+	<TextView
+		    android:id="@+id/radio_new_audio_single" 
+		    android:layout_width="match_parent"
+			android:layout_height="wrap_content" 
+			android:layout_marginLeft="5dp"
+			android:text="@string/dialog_add_new_single" />
+    <RadioGroup
+        android:id="@+id/radioGroup1_new_at"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+	<RadioButton
+	    android:id="@+id/radio_new_audio_at_top"
+	    android:layout_width="match_parent"
+	    android:layout_height="50dp"
+	    android:text="@string/add_new_note_top" />
+	
+	<RadioButton
+	    android:id="@+id/radio_new_audio_at_bottom"
+	    android:layout_width="match_parent"
+	    android:layout_height="50dp"
+	    android:text="@string/add_new_note_bottom" />
+	</RadioGroup>
+	
+	<!-- Directory -->
+	<TextView
+		    android:id="@+id/radio_new_audio_directory" 
+		    android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp" 
+			android:text="@string/dialog_add_new_multiple" />
+    <RadioGroup
+        android:id="@+id/radioGroup2_new_at"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+	<RadioButton
+	    android:id="@+id/radio_new_audio_in_directory_at_top"
+	    android:layout_width="match_parent"
+	    android:layout_height="50dp"
+	    android:text="@string/add_new_note_top" />
+
+	<RadioButton
+	    android:id="@+id/radio_new_audio_in_directory_at_bottom"
+	    android:layout_width="match_parent"
+	    android:layout_height="50dp"
+	    android:text="@string/add_new_note_bottom" />	
+		
+	</RadioGroup>
+</LinearLayout>	
+</ScrollView>

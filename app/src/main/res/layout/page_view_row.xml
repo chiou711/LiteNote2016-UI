@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--  icons | audio name | [thumb nail..  -->
+<!--  title text........ |  ............] --> <!-- head -->
+				          <!-- left  -->
+<!--  [body text .......................  -->
+<!--   .................................  -->
+<!--   .................................] --> <!-- whole -->
+
+
+<!-- whole start -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/whole_row"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical" >
+
+    <!-- head start -->
+    <LinearLayout
+        android:id="@+id/row_head"
+        android:baselineAligned="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="110dp"
+        android:orientation="horizontal">
+
+        <!-- left start -->
+        <LinearLayout
+            android:id="@+id/row_head_left"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- icons start -->
+            <LinearLayout
+                android:id="@+id/row_icons"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal">
+
+            <!-- ID -->
+            <TextView
+                android:id="@+id/row_id"
+                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:maxLines="1"
+                android:gravity="center_vertical"
+                android:textSize="14sp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginStart="3dp"
+                android:textStyle="italic" />
+
+            <!-- check box-->
+            <ImageView
+                android:id="@+id/img_check"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="img_check"/>
+
+            <!-- dragger -->
+            <ImageView
+                android:id="@+id/img_dragger"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_dragger_off"
+                android:contentDescription="@string/drag_handler"/>
+
+            <!-- audio block -->
+            <LinearLayout
+                android:id="@+id/audio_block"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_gray_border" >
+                <!-- audio icon -->
+                <ImageView
+                    android:id="@+id/img_audio"
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:contentDescription="img_audio"
+                    android:adjustViewBounds="false" />
+                <!-- audio name -->
+                <TextView
+                    android:id="@+id/row_audio_name"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:minHeight="50dp"
+                    android:maxLines="4"
+                    android:layout_gravity="start"
+                    android:textSize="10sp"	/>
+            </LinearLayout>
+
+            </LinearLayout>
+            <!-- icons end -->
+
+            <!-- title text -->
+            <LinearLayout
+                android:id="@+id/row_title_block"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/row_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:minHeight="50dp"
+                    android:maxLines="1"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/note_text"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall" />
+            </LinearLayout>
+
+           </LinearLayout>
+        <!-- left end -->
+
+        <!-- thumb nail start -->
+        <LinearLayout
+            android:id="@+id/image_view_block"
+            android:orientation="horizontal"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="3dp" >
+            <ImageView
+                android:id="@+id/image_view_thumb_picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:contentDescription="img_thumb_picture"/>
+            <ImageView
+                android:id="@+id/image_view_thumb_audio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:contentDescription="img_thumb_audio"/>
+            <com.cw.litenote.util.CustomWebView
+                android:id="@+id/image_view_thumb_web"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:contentDescription="img_thumb_web" />
+            <ProgressBar
+                android:id="@+id/img_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </LinearLayout>
+        <!-- thumb nail end -->
+
+        </LinearLayout>
+    <!-- head end -->
+
+    <!-- line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_margin="5dp"
+        android:background="#777777" />
+
+    <!-- body start -->
+   	<LinearLayout
+        android:id="@+id/row_body"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" >
+   	<TextView
+        android:id="@+id/row_body_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:maxLines="3"
+        android:paddingLeft="15dp"
+        android:paddingStart="15dp"
+        android:paddingRight="15dp"
+        android:paddingEnd="15dp"
+        android:layout_gravity="center_vertical"
+        android:textSize="12sp" />
+   	<TextView
+        android:id="@+id/row_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:paddingRight="12sp"
+        android:paddingLeft="12sp"
+        android:textSize="12sp" />
+    </LinearLayout>
+    <!-- body end -->
+    
+</LinearLayout>
+<!-- whole end -->
