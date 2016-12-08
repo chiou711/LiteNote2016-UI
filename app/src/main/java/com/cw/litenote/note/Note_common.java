@@ -66,7 +66,7 @@ public class Note_common {
     static String mOriginalTitle;
     static String mOriginalBody;
     
-    Long mRowId;
+    Long mNoteId;
 	static Long mOriginalCreatedTime;
 	static Long mOriginalMarking;
     
@@ -81,10 +81,10 @@ public class Note_common {
     static ProgressBar progressBar;
     static ProgressBar progressBarExpand;
     
-    public Note_common(Activity act,Long rowId,String strTitle, String pictureUri, String audioUri, String drawingUri, String linkUri, String strBody, Long createdTime)
+    public Note_common(Activity act,Long noteId,String strTitle, String pictureUri, String audioUri, String drawingUri, String linkUri, String strBody, Long createdTime)
     {
     	mAct = act;
-    	mRowId = rowId;
+    	mNoteId = noteId;
     			
     	mOriginalTitle = strTitle;
 	    mOriginalBody = strBody;
@@ -99,7 +99,7 @@ public class Note_common {
 	    
 	    mDb = Page.mDb_page;
 	    
-	    mOriginalMarking = mDb.getNoteMarking_byId(rowId);
+	    mOriginalMarking = mDb.getNoteMarking_byId(noteId);
 		
 	    bRollBackData = false;
 		bEditPicture = true;
@@ -315,8 +315,8 @@ public class Note_common {
 							//just delete picture file name
 							mCurrentPictureUri = "";
 							mOriginalPictureUri = "";
-					    	removePictureStringFromCurrentEditNote(mRowId);
-					    	populateFields_all(mRowId);
+					    	removePictureStringFromCurrentEditNote(mNoteId);
+					    	populateFields_all(mNoteId);
 					    	bRemovePictureUri = true;
 						}
 					});
@@ -329,7 +329,7 @@ public class Note_common {
     static void deleteNote(Long rowId)
     {
     	System.out.println("Note_common / _deleteNote");
-        // for Add new note (mRowId is null first), but decide to cancel 
+        // for Add new note (mNoteId is null first), but decide to cancel
         if(rowId != null)
         	mDb.deleteNote(rowId,true);
     }

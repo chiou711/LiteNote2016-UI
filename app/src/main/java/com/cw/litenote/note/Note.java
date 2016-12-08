@@ -67,7 +67,7 @@ public class Note extends FragmentActivity
 
     // DB
     public DB_page mDb_page;
-    public static Long mRowId;
+    public static Long mNoteId;
     int mEntryPosition;
     public static int mCurrentPosition;
     int EDIT_CURRENT_VIEW = 5;
@@ -147,8 +147,8 @@ public class Note extends FragmentActivity
 		mStyle = TabsHost.mDbFolder.getPageStyle(TabsHost.mNow_pageId, true);
 
 		if(mDb_page != null) {
-			mRowId = mDb_page.getNoteId(mCurrentPosition, true);
-			mAudioUriInDB = mDb_page.getNoteAudioUri_byId(mRowId);
+			mNoteId = mDb_page.getNoteId(mCurrentPosition, true);
+			mAudioUriInDB = mDb_page.getNoteAudioUri_byId(mNoteId);
 		}
 
 		// audio block
@@ -190,13 +190,13 @@ public class Note extends FragmentActivity
 			public void onClick(View view)
 			{
 				Intent intent = new Intent(Note.this, Note_edit.class);
-				intent.putExtra(DB_page.KEY_NOTE_ID, mRowId);
-				intent.putExtra(DB_page.KEY_NOTE_TITLE, mDb_page.getNoteTitle_byId(mRowId));
-				intent.putExtra(DB_page.KEY_NOTE_AUDIO_URI , mDb_page.getNoteAudioUri_byId(mRowId));
-				intent.putExtra(DB_page.KEY_NOTE_PICTURE_URI , mDb_page.getNotePictureUri_byId(mRowId));
-				intent.putExtra(DB_page.KEY_NOTE_LINK_URI , mDb_page.getNoteLinkUri_byId(mRowId));
-				intent.putExtra(DB_page.KEY_NOTE_BODY, mDb_page.getNoteBody_byId(mRowId));
-				intent.putExtra(DB_page.KEY_NOTE_CREATED, mDb_page.getNoteCreatedTime_byId(mRowId));
+				intent.putExtra(DB_page.KEY_NOTE_ID, mNoteId);
+				intent.putExtra(DB_page.KEY_NOTE_TITLE, mDb_page.getNoteTitle_byId(mNoteId));
+				intent.putExtra(DB_page.KEY_NOTE_AUDIO_URI , mDb_page.getNoteAudioUri_byId(mNoteId));
+				intent.putExtra(DB_page.KEY_NOTE_PICTURE_URI , mDb_page.getNotePictureUri_byId(mNoteId));
+				intent.putExtra(DB_page.KEY_NOTE_LINK_URI , mDb_page.getNoteLinkUri_byId(mNoteId));
+				intent.putExtra(DB_page.KEY_NOTE_BODY, mDb_page.getNoteBody_byId(mNoteId));
+				intent.putExtra(DB_page.KEY_NOTE_CREATED, mDb_page.getNoteCreatedTime_byId(mNoteId));
 				startActivityForResult(intent, EDIT_CURRENT_VIEW);
 			}
 		});
@@ -209,13 +209,13 @@ public class Note extends FragmentActivity
 			public void onClick(View view)
 			{
 				// set Sent string Id
-				List<Long> rowArr = new ArrayList<>();
-				rowArr.add(0,mRowId);
+				List<Long> noteIdArray = new ArrayList<>();
+				noteIdArray.add(0, mNoteId);
 
-				String sentString = Util.getStringWithXmlTag(rowArr);
+				String sentString = Util.getStringWithXmlTag(noteIdArray);
 				sentString = Util.addXmlTag(sentString);
 
-				String picFile = mDb_page.getNotePictureUri_byId(mRowId);
+				String picFile = mDb_page.getNotePictureUri_byId(mNoteId);
 				System.out.println("-> picFile = " + picFile);
 				String[] picFileArray = null;
 				if( (picFile != null) &&
@@ -266,9 +266,9 @@ public class Note extends FragmentActivity
 			mIsViewModeChanged = false;
 
 			// show audio name
-			mRowId = mDb_page.getNoteId(nextPosition,true);
-			System.out.println("Note / _onPageSelected / mRowId = " + mRowId);
-			mAudioUriInDB = mDb_page.getNoteAudioUri_byId(mRowId);
+			mNoteId = mDb_page.getNoteId(nextPosition,true);
+			System.out.println("Note / _onPageSelected / mNoteId = " + mNoteId);
+			mAudioUriInDB = mDb_page.getNoteAudioUri_byId(mNoteId);
 			System.out.println("Note / _onPageSelected / mAudioUriInDB = " + mAudioUriInDB);
 
 			if(UtilAudio.hasAudioExtension(mAudioUriInDB))
@@ -286,7 +286,7 @@ public class Note extends FragmentActivity
 			}
 
 			// stop video when changing note
-			String pictureUriInDB = mDb_page.getNotePictureUri_byId(mRowId);
+			String pictureUriInDB = mDb_page.getNotePictureUri_byId(mNoteId);
 			if(UtilVideo.hasVideoExtension(pictureUriInDB,act)) {
 				VideoPlayer.stopVideo();
 				if(picUI != null) {

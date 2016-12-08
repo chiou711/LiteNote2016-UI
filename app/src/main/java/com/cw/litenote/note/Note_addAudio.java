@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 public class Note_addAudio extends FragmentActivity { 
 
-    static Long mRowId;
+    static Long mNoteId;
     static String mSelectedAudioUri;
     Note_common note_common;
     static boolean mEnSaveDb = true;
@@ -39,16 +39,16 @@ public class Note_addAudio extends FragmentActivity {
         bUseSelectedFile = false;
 			
         // get row Id from saved instance
-        mRowId = (savedInstanceState == null) ? null :
+        mNoteId = (savedInstanceState == null) ? null :
             (Long) savedInstanceState.getSerializable(DB_page.KEY_NOTE_ID);
         
         // get audio Uri in DB if instance is not null
         mDb = Page.mDb_page;
         if(savedInstanceState != null)
         {
-	        System.out.println("Note_addMusic / mRowId =  " + mRowId);
-	        if(mRowId != null)
-	        	mAudioUriInDB = mDb.getNoteAudioUri_byId(mRowId);
+	        System.out.println("Note_addMusic / mNoteId =  " + mNoteId);
+	        if(mNoteId != null)
+	        	mAudioUriInDB = mDb.getNoteAudioUri_byId(mNoteId);
         }
         
         // at the first beginning
@@ -80,7 +80,7 @@ public class Note_addAudio extends FragmentActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
    	 	System.out.println("Note_addNew / onSaveInstanceState");
-        outState.putSerializable(DB_page.KEY_NOTE_ID, mRowId);
+        outState.putSerializable(DB_page.KEY_NOTE_ID, mNoteId);
     }
     
     @Override
@@ -140,8 +140,8 @@ public class Note_addAudio extends FragmentActivity {
 							uriStr = "file://".concat(realPath);
 					}
 					
-		  		    mRowId = null; // set null for Insert
-		        	mRowId = Note_common.insertAudioToDB(uriStr); 
+		  		    mNoteId = null; // set null for Insert
+		        	mNoteId = Note_common.insertAudioToDB(uriStr);
 		        	mSelectedAudioUri = uriStr;
 		        	
 		        	if( (Note_common.getCount() > 0) &&  
@@ -198,9 +198,9 @@ public class Note_addAudio extends FragmentActivity {
 						for(String urlStr:urlsArray)
 						{
 							System.out.println("urlStr = " + urlStr);
-				  		    mRowId = null; // set null for Insert
+				  		    mNoteId = null; // set null for Insert
 				  		    if(!Util.isEmptyString(urlStr))
-				  		    	mRowId = Note_common.insertAudioToDB(urlStr); 
+				  		    	mNoteId = Note_common.insertAudioToDB(urlStr);
 				        	mSelectedAudioUri = urlStr;
 				        	
 				        	if( (Note_common.getCount() > 0) &&

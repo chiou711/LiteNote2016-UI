@@ -136,7 +136,7 @@ public class Util
 	}
 	
 	// export to SD card: for checked pages
-	public String exportToSdCard(String filename, List<Boolean> checkedArr,boolean enableToast)
+	public String exportToSdCard(String filename, List<Boolean> checkedArr)
 	{   
 		//first row text
 		String data ="";
@@ -239,17 +239,17 @@ public class Util
         	if((checkedArr == null ) || ( checkedArr.get(i)  ))
     		{
 	        	// set Sent string Id
-				List<Long> rowArray = new ArrayList<>();
+				List<Long> noteIdArray = new ArrayList<>();
 				DB_page.setFocusPage_tableId(mDbFolder.getPageTableId(i,true));
 				
 				mDbPage.open();
 				int count = mDbPage.getNotesCount(false);
 	    		for(int k=0; k<count; k++)
 	    		{
-    				rowArray.add(k, mDbPage.getNoteId(k,false));
+    				noteIdArray.add(k, mDbPage.getNoteId(k,false));
 	    		}
 	    		mDbPage.close();
-	    		curData = curData.concat(getStringWithXmlTag(rowArray));
+	    		curData = curData.concat(getStringWithXmlTag(noteIdArray));
     		}
     	}
     	return curData;
@@ -613,7 +613,7 @@ public class Util
 //	static String strTitleEdit;
 	
 	// get Send String with XML tag
-	public static String getStringWithXmlTag(List<Long> rowArray)
+	public static String getStringWithXmlTag(List<Long> noteIdArray)
 	{
         String PAGE_TAG_B = "<page>";
         String PAGE_NAME_TAG_B = "<page_name>";
@@ -635,7 +635,7 @@ public class Util
         String sentString = NEW_LINE;
 
     	// when page has page name only, no notes
-    	if(rowArray.size() == 0)
+    	if(noteIdArray.size() == 0)
     	{
         	sentString = sentString.concat(NEW_LINE + PAGE_TAG_B );
 	        sentString = sentString.concat(NEW_LINE + PAGE_NAME_TAG_B + mDbFolder.getCurrentPageTitle() + PAGE_NAME_TAG_E);
@@ -651,12 +651,13 @@ public class Util
     	}
     	else
     	{
-	        for(int i=0;i< rowArray.size();i++)
+	        for(int i=0;i< noteIdArray.size();i++)
 	        {
 				String strTitleEdit;
-				DB_page db_page = new DB_page(MainAct.mAct,getPref_lastTimeView_page_tableId(MainAct.mAct));
+				int pageTableId = DB_page.getFocusPage_tableId();
+				DB_page db_page = new DB_page(MainAct.mAct,pageTableId);
                 db_page.open();
-		    	Cursor cursorNote = db_page.queryNote(rowArray.get(i));
+		    	Cursor cursorNote = db_page.queryNote(noteIdArray.get(i));
 		        strTitleEdit = cursorNote.getString(
 		        		cursorNote.getColumnIndexOrThrow(DB_page.KEY_NOTE_TITLE));
 		        strTitleEdit = replaceEscapeCharacter(strTitleEdit);
@@ -697,7 +698,7 @@ public class Util
 				sentString = sentString.concat(NEW_LINE + LINK_TAG_B + strLinkUriStr + LINK_TAG_E);
 				sentString = sentString.concat(NEW_LINE + NOTE_ITEM_TAG_E);
 		        sentString = sentString.concat(NEW_LINE);
-		    	if(i==rowArray.size()-1)
+		    	if(i==noteIdArray.size()-1)
 		        	sentString = sentString.concat(NEW_LINE +  PAGE_TAG_E);
 
 	        }

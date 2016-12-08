@@ -32,7 +32,7 @@ import android.widget.Toast;
  */
 public class Note_addCameraVideo extends Activity {
 
-    static Long mRowId;
+    static Long mNoteId;
     static String mCameraVideoUri;
     Note_common note_common;
     static boolean mEnSaveDb;
@@ -53,16 +53,16 @@ public class Note_addCameraVideo extends Activity {
         mEnSaveDb = true;
         
         // get row Id from saved instance
-        mRowId = (savedInstanceState == null) ? null :
+        mNoteId = (savedInstanceState == null) ? null :
             (Long) savedInstanceState.getSerializable(DB_page.KEY_NOTE_ID);
         
         // get picture Uri in DB if instance is not null
         mDb = Page.mDb_page;
         if(savedInstanceState != null)
         {
-	        System.out.println("Note_addCameraVideo / onCreate / mRowId =  " + mRowId);
-	        if(mRowId != null)
-	        	mVideoUriInDB = mDb.getNotePictureUri_byId(mRowId);
+	        System.out.println("Note_addCameraVideo / onCreate / mNoteId =  " + mNoteId);
+	        if(mNoteId != null)
+	        	mVideoUriInDB = mDb.getNotePictureUri_byId(mNoteId);
         }
         
         // at the first beginning
@@ -88,7 +88,7 @@ public class Note_addCameraVideo extends Activity {
     protected void onPause() {
         super.onPause();
        	System.out.println("Note_addCameraVideo / onPause / keep mPictureUriInDB");
-       	mRowId = Note_common.savePictureStateInDB(mRowId,mEnSaveDb,mVideoUriInDB, "", "", ""); 
+       	mNoteId = Note_common.savePictureStateInDB(mNoteId,mEnSaveDb,mVideoUriInDB, "", "", "");
     }
 
     // for Add new picture (stage 2)
@@ -97,7 +97,7 @@ public class Note_addCameraVideo extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
    	 	System.out.println("Note_addCameraVideo / onSaveInstanceState");
-        outState.putSerializable(DB_page.KEY_NOTE_ID, mRowId);
+        outState.putSerializable(DB_page.KEY_NOTE_ID, mNoteId);
     }
     
     @Override
@@ -190,9 +190,9 @@ public class Note_addCameraVideo extends Activity {
 				
 				
 				// set for Rotate any times
-		        if(mRowId != null)
+		        if(mNoteId != null)
 		        {
-		        	mCameraVideoUri = mDb.getNotePictureUri_byId(mRowId);
+		        	mCameraVideoUri = mDb.getNotePictureUri_byId(mNoteId);
 		        }
 
 		        // Add for Sony, the file size is 0 for given file name by putExtra 
@@ -208,7 +208,7 @@ public class Note_addCameraVideo extends Activity {
 				    	String path = Util.getLocalRealPathByUri(Note_addCameraVideo.this,intentVideoUri);
 				    	mVideoUriInDB = "file://" + path;
 				    	mEnSaveDb = true;
-				       	mRowId = Note_common.savePictureStateInDB(mRowId,mEnSaveDb,mVideoUriInDB, "", "", ""); 
+				       	mNoteId = Note_common.savePictureStateInDB(mNoteId,mEnSaveDb,mVideoUriInDB, "", "", "");
 				    	mEnSaveDb = false;
 				    }
 				}
@@ -223,7 +223,7 @@ public class Note_addCameraVideo extends Activity {
 				int lastContentId = getLastCapturedVideoId(this);
 				handleDuplicatedVideo(this, lastContentId);
     			
-	  		    mRowId = null; // set null for Insert
+	  		    mNoteId = null; // set null for Insert
 	  		    takeVideoWithName();
 			} 
 			else if (resultCode == RESULT_CANCELED)
@@ -237,7 +237,7 @@ public class Note_addCameraVideo extends Activity {
 				Toast.makeText(this, R.string.note_cancel_add_new, Toast.LENGTH_LONG).show();
 				
 				// delete the temporary note in DB
-                note_common.deleteNote(mRowId);
+                note_common.deleteNote(mNoteId);
                 mEnSaveDb = false;
                 
                 // When auto time out of taking picture App happens, 
@@ -371,9 +371,9 @@ public class Note_addCameraVideo extends Activity {
 	    	   		mVideoUriInDB = "file://" + Uri.parse(file1.getPath()).toString();
 					
 					// set for Rotate any times
-			        if(mRowId != null)
+			        if(mNoteId != null)
 			        {
-			        	mCameraVideoUri = mDb.getNotePictureUri_byId(mRowId);
+			        	mCameraVideoUri = mDb.getNotePictureUri_byId(mNoteId);
 			        }
 			        
 	    	   		// delete //??? delete thumb nail? check again!

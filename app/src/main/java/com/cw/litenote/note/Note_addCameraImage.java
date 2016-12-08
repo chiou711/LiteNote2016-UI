@@ -37,7 +37,7 @@ import android.widget.Toast;
  */
 public class Note_addCameraImage extends Activity {
 
-    static Long mRowId;
+    static Long mNoteId;
     static String mCameraImageUri;
     Note_common note_common;
     static boolean mEnSaveDb;
@@ -60,16 +60,16 @@ public class Note_addCameraImage extends Activity {
         mEnSaveDb = true;
         
         // get row Id from saved instance
-        mRowId = (savedInstanceState == null) ? null :
+        mNoteId = (savedInstanceState == null) ? null :
             (Long) savedInstanceState.getSerializable(DB_page.KEY_NOTE_ID);
         
         // get picture Uri in DB if instance is not null
         mDb = Page.mDb_page;
         if(savedInstanceState != null)
         {
-	        System.out.println("Note_addCameraImage / onCreate / mRowId =  " + mRowId);
-	        if(mRowId != null)
-	        	mImageUriInDB = mDb.getNotePictureUri_byId(mRowId);
+	        System.out.println("Note_addCameraImage / onCreate / mNoteId =  " + mNoteId);
+	        if(mNoteId != null)
+	        	mImageUriInDB = mDb.getNotePictureUri_byId(mNoteId);
         }
         
         // at the first beginning
@@ -120,7 +120,7 @@ public class Note_addCameraImage extends Activity {
         if( UtilImage.bShowExpandedImage == false )
         {
         	System.out.println("Note_addCameraImage / onPause / keep mPictureUriInDB");
-        	mRowId = Note_common.savePictureStateInDB(mRowId,mEnSaveDb,mImageUriInDB, "", "", ""); 
+        	mNoteId = Note_common.savePictureStateInDB(mNoteId,mEnSaveDb,mImageUriInDB, "", "", "");
         }
     }
 
@@ -150,7 +150,7 @@ public class Note_addCameraImage extends Activity {
         else
         	outState.putBoolean("ShowConfirmContinueDialog",false);
         
-        outState.putSerializable(DB_page.KEY_NOTE_ID, mRowId);
+        outState.putSerializable(DB_page.KEY_NOTE_ID, mNoteId);
     }
     
     @Override
@@ -301,12 +301,12 @@ public class Note_addCameraImage extends Activity {
         		pref_takeImage = getSharedPreferences("takeImage", 0);
         		
 				if( UtilImage.bShowExpandedImage == false )
-		        	mRowId = Note_common.savePictureStateInDB(mRowId,mEnSaveDb,mImageUriInDB, "", "", ""); 
+		        	mNoteId = Note_common.savePictureStateInDB(mNoteId,mEnSaveDb,mImageUriInDB, "", "", "");
 				
 				// set for Rotate any times
-		        if(mRowId != null)
+		        if(mNoteId != null)
 		        {
-		        	mCameraImageUri = mDb.getNotePictureUri_byId(mRowId);
+		        	mCameraImageUri = mDb.getNotePictureUri_byId(mNoteId);
 		        }
 	            
     			if( getIntent().getExtras().getString("extra_ADD_NEW_TO_TOP", "false").equalsIgnoreCase("true") &&
@@ -332,7 +332,7 @@ public class Note_addCameraImage extends Activity {
 	    			bUseCameraImage = false; 
 	        		
 	        		// take image without confirmation dialog 
-		  		    mRowId = null; // set null for Insert
+		  		    mNoteId = null; // set null for Insert
 		  		    takeImageWithName();
 	        	}
 
@@ -358,7 +358,7 @@ public class Note_addCameraImage extends Activity {
 				Toast.makeText(this, R.string.note_cancel_add_new, Toast.LENGTH_LONG).show();
 				
 				// delete the temporary note in DB
-                Note_common.deleteNote(mRowId);
+                Note_common.deleteNote(mNoteId);
                 mEnSaveDb = false;
                 
                 // When auto time out of taking picture App happens, 
@@ -480,12 +480,12 @@ public class Note_addCameraImage extends Activity {
 	    	   		// update new Uri to DB
 	    	   		mImageUriInDB = "file://" + Uri.parse(file1.getPath()).toString();
 					if( UtilImage.bShowExpandedImage == false )
-			        	mRowId = Note_common.savePictureStateInDB(mRowId,mEnSaveDb,mImageUriInDB, "", "", ""); 
+			        	mNoteId = Note_common.savePictureStateInDB(mNoteId,mEnSaveDb,mImageUriInDB, "", "", "");
 					
 					// set for Rotate any times
-			        if(mRowId != null)
+			        if(mNoteId != null)
 			        {
-			        	mCameraImageUri = mDb.getNotePictureUri_byId(mRowId);
+			        	mCameraImageUri = mDb.getNotePictureUri_byId(mNoteId);
 			        }
 			        
 	    	   		// delete //??? delete thumb nail? check again!
@@ -540,7 +540,7 @@ public class Note_addCameraImage extends Activity {
             public void onClick(View view) {
         		
             	// take image without confirmation dialog 
-	  		    mRowId = null; // set null for Insert
+	  		    mNoteId = null; // set null for Insert
 	  		    takeImageWithName();
 	  		    UtilImage.bShowExpandedImage = false; // set for getting new row Id
             }

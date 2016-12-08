@@ -201,8 +201,7 @@ public class MailPagesFragment extends Fragment{
 		        if(extras == null)
 		        {
 					mEMailBodyString = util.exportToSdCard(attachmentFileName, // attachment name
-														 selPageList.mCheckedArr, // checked page array
-														 false);
+														   selPageList.mCheckedArr);// checked page array
 					mEMailBodyString = util.trimXMLtag(mEMailBodyString);
 	        	}
 	        	else //other: for Note_view or selected Check notes

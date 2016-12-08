@@ -1002,7 +1002,7 @@ public class Page extends UilListViewBaseFragment
 	    		if(!noItemChecked())
 	        	{
 		        	// set Sent string Id
-					List<Long> rowArr = new ArrayList<>();
+					List<Long> noteIdArray = new ArrayList<>();
 					List<String> pictureFileNameList = new ArrayList<>();
 	            	int j=0;
 	            	mDb_page.open();
@@ -1011,7 +1011,7 @@ public class Page extends UilListViewBaseFragment
 		    		{
 		    			if(mDb_page.getNoteMarking(i,false) == 1)
 		    			{
-		    				rowArr.add(j, mDb_page.getNoteId(i,false));
+		    				noteIdArray.add(j, mDb_page.getNoteId(i,false));
 		    				j++;
 		    				
 		    				String picFile = mDb_page.getNotePictureUri_byId(mDb_page.getNoteId(i,false),false,false);
@@ -1022,7 +1022,7 @@ public class Page extends UilListViewBaseFragment
 		    		mDb_page.close();
 
 					// message
-					String sentString = Util.getStringWithXmlTag(rowArr);
+					String sentString = Util.getStringWithXmlTag(noteIdArray);
 					sentString = Util.addXmlTag(sentString);
 
 		    		// picture array

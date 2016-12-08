@@ -72,6 +72,7 @@ public class MainAct extends FragmentActivity implements OnBackStackChangedListe
     static Drawer mDrawer;
 	public static Folder mFolder;
 
+	// MainAct
     @Override
     protected void onCreate(Bundle savedInstanceState) 
     {

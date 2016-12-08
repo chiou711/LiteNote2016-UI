@@ -204,8 +204,7 @@ public class Export_toSDCardFragment extends Fragment {
 		protected Void doInBackground(Void... params) {
 			Util util = new Util(getActivity());
 			util.exportToSdCard(mStrSDCardFileName, // attachment name
-								mSelectPageList.mCheckedArr,
-								false); // checked page array
+								mSelectPageList.mCheckedArr); // checked page array
 			return null;
 		}
 		

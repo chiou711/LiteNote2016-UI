@@ -182,7 +182,7 @@ public class Note_addText extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
    	 	System.out.println("Note_addNew / onSaveInstanceState");
-        note_common.mRowId = mRowId;
+        note_common.mNoteId = mRowId;
         outState.putSerializable(DB_page.KEY_NOTE_ID, mRowId);
     }
 
