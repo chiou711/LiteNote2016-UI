@@ -34,37 +34,38 @@ import com.mobeta.android.dslv.SimpleDragSortCursorAdapter;
 
 import java.util.Date;
 
+// Pager adapter
 public class Page_adapter extends SimpleDragSortCursorAdapter
 {
-	public Page_adapter(Context context, int layout, Cursor c,
+	Page_adapter(Context context, int layout, Cursor c,
 						String[] from, int[] to, int flags)
 	{
 		super(context, layout, c, from, to, flags);
 	}
 
-	public class ViewHolder {
-		public ImageView imageCheck;
-		public TextView rowId;
-		public View audioBlock;
-		public ImageView imageAudio;
-		public TextView audioName;
-		public View textTitleBlock;
-		public TextView textTitle;
-		public View textBodyBlock;
-		public TextView textBody;
-		public TextView textTime;
-		public ImageView imageDragger;
-		public View thumbBlock;
-		public ImageView thumbPicture;
-		public ImageView thumbAudio;
-		public CustomWebView thumbWeb;
-		public ProgressBar progressBar;
+	private class ViewHolder {
+		ImageView imageCheck;
+		TextView rowId;
+		View audioBlock;
+		ImageView imageAudio;
+		TextView audioName;
+		View textTitleBlock;
+		TextView textTitle;
+		View rowDivider;
+		View textBodyBlock;
+		TextView textBody;
+		TextView textTime;
+		ImageView imageDragger;
+		View thumbBlock;
+		ImageView thumbPicture;
+		ImageView thumbAudio;
+		CustomWebView thumbWeb;
+		ProgressBar progressBar;
 	}
 	
 	@Override
 	public int getCount() {
-		int count = Page.mDb_page.getNotesCount(true);
-		return count;
+		return Page.mDb_page.getNotesCount(true);
 	}
 
 	@Override
@@ -141,6 +142,7 @@ public class Page_adapter extends SimpleDragSortCursorAdapter
 			holder.progressBar = (ProgressBar) view.findViewById(R.id.img_progress);
 			holder.textTitleBlock = view.findViewById(R.id.row_title_block);
 			holder.textTitle = (TextView) view.findViewById(R.id.row_title);
+			holder.rowDivider = view.findViewById(R.id.row_divider);
 			holder.textBodyBlock = view.findViewById(R.id.row_body);
 			holder.textBody = (TextView) view.findViewById(R.id.row_body_text_view);
 			holder.textTime = (TextView) view.findViewById(R.id.row_time);
@@ -421,13 +423,15 @@ public class Page_adapter extends SimpleDragSortCursorAdapter
 			holder.textBody.setText(strBody);
 //			holder.textBody.setTextSize(12);
 	  		
-	  		// time stamp
+			holder.rowDivider.setVisibility(View.VISIBLE);
 			holder.textBody.setTextColor(ColorSet.mText_ColorArray[Page.mStyle]);
+			// time stamp
 			holder.textTime.setText(Util.getTimeString(Page.mDb_page.getNoteCreatedTime(position,true)));
 			holder.textTime.setTextColor(ColorSet.mText_ColorArray[Page.mStyle]);
 	  	}
 	  	else
 	  	{
+			holder.rowDivider.setVisibility(View.GONE);
 	  		holder.textBodyBlock.setVisibility(View.GONE);
 	  	}			
 		

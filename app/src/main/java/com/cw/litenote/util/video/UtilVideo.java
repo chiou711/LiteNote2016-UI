@@ -79,7 +79,7 @@ public class UtilVideo
         	if(!hasMediaControlWidget) {
 				Note_UI ui = new Note_UI(act,viewPager,position);
                 Note_UI.updateVideoPlayButtonState(viewPager, Note.mCurrentPosition);
-				ui.delay_picViewUI(5006,strPicture);
+				ui.tempShow_picViewUI(5006,strPicture);
 			}
         	else
 				playOrPauseVideo(viewPager,mPictureString);

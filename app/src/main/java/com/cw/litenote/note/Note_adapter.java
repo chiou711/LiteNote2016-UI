@@ -424,7 +424,7 @@ class Note_adapter extends FragmentStatePagerAdapter
                     }
 
 					picUI = new Note_UI(act, pager, position);
-					picUI.delay_picViewUI(5002, pictureStr);//1st touch to turn on UI
+					picUI.tempShow_picViewUI(5002, pictureStr);//1st touch to turn on UI
                 }
 
 				// Set video view
@@ -442,7 +442,7 @@ class Note_adapter extends FragmentStatePagerAdapter
 
                         if (!UtilVideo.hasMediaControlWidget) {
 							Note_UI.updateVideoPlayButtonState(pager, Note.mCurrentPosition);
-                            picUI.delay_picViewUI(5004,pictureStr);
+                            picUI.tempShow_picViewUI(5004,pictureStr);
                         }
 
 						if (UtilVideo.mPlayVideoPosition > 0)
@@ -458,7 +458,7 @@ class Note_adapter extends FragmentStatePagerAdapter
 
 							if (!UtilVideo.hasMediaControlWidget) {
 								Note_UI.updateVideoPlayButtonState(pager, Note.mCurrentPosition);
-                                picUI.delay_picViewUI(5003,pictureStr); // for 3 seconds, _showPictureViewUI
+                                picUI.tempShow_picViewUI(5003,pictureStr); // for 3 seconds, _showPictureViewUI
                             }
 
 							UtilVideo.playOrPauseVideo(pager,pictureStr);

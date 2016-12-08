@@ -31,7 +31,7 @@ public class Note_addAudio extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        System.out.println("Note_addMusic / onCreate");
+        System.out.println("Note_addAudio / onCreate");
         
         note_common = new Note_common(this);
         mAudioUriInDB = "";
@@ -46,7 +46,7 @@ public class Note_addAudio extends FragmentActivity {
         mDb = Page.mDb_page;
         if(savedInstanceState != null)
         {
-	        System.out.println("Note_addMusic / mNoteId =  " + mNoteId);
+	        System.out.println("Note_addAudio / mNoteId =  " + mNoteId);
 	        if(mNoteId != null)
 	        	mAudioUriInDB = mDb.getNoteAudioUri_byId(mNoteId);
         }
@@ -95,11 +95,11 @@ public class Note_addAudio extends FragmentActivity {
 		System.out.println("Note_addAudio / onActivityResult");
 		if (resultCode == Activity.RESULT_OK)
 		{
-			// for music
+			// for audio
 			if(requestCode == Util.CHOOSER_SET_AUDIO)
 			{
 				Uri selectedUri = imageReturnedIntent.getData();
-				System.out.println("Note_adddAudio / onActivityResult / selectedUri = " + selectedUri);
+				System.out.println("Note_addAudio / onActivityResult / selectedUri = " + selectedUri);
 				
 				// SAF support, take persistent Uri permission
 				if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
@@ -185,6 +185,12 @@ public class Note_addAudio extends FragmentActivity {
 							Toast.makeText(this,"No file is found",Toast.LENGTH_SHORT).show();
 							finish();
 						}
+						else
+						{
+							// show Start
+							Toast.makeText(this, R.string.add_new_start, Toast.LENGTH_SHORT).show();
+						}
+
 						int i= 1;
 						int total=0;
 						
@@ -220,10 +226,12 @@ public class Note_addAudio extends FragmentActivity {
 				        	}
 				        	i++;
 						}
+						// show Stop
+						Toast.makeText(this,R.string.add_new_stop,Toast.LENGTH_SHORT).show();
 					}
 					else
 					{
-						Toast.makeText(Note_addAudio.this,
+						Toast.makeText(this,
 								"For multiple files, please check if your selection is a local file.",
 								Toast.LENGTH_LONG)
 								.show();					

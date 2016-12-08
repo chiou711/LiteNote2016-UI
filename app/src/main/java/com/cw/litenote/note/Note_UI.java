@@ -315,7 +315,7 @@ public class Note_UI
 							else
 								audio_title_text_view.setSelected(false);
 
-                            delay_picViewUI(100,strPicture);
+                            tempShow_picViewUI(100,strPicture);
 						}
 					} );
 	                
@@ -390,7 +390,7 @@ public class Note_UI
 					        showSeekBarProgress = true;
                             if(handler != null)
                                 handler.removeCallbacks(runnable);
-					    	delay_picViewUI(3001,strPicture); // for 3 seconds, _onProgressChanged
+					    	tempShow_picViewUI(3001,strPicture); // for 3 seconds, _onProgressChanged
 						}
 					}
 					
@@ -406,7 +406,7 @@ public class Note_UI
 								UtilVideo.mVideoView.seekTo(mPlayVideoPosition);
                             if(handler != null)
                                 handler.removeCallbacks(runnable);
-                            delay_picViewUI(3002,strPicture); // for 3 seconds, _onProgressChanged
+                            tempShow_picViewUI(3002,strPicture); // for 3 seconds, _onProgressChanged
 						}
 					}	
 				});
@@ -414,7 +414,7 @@ public class Note_UI
 	  	}
 	}
 
-	public void delay_picViewUI(long delayTime, String pictureStr)
+	public void tempShow_picViewUI(long delayTime, String pictureStr)
 	{
 		System.out.println("Note_UI / _delay_picViewUI / delayTime = " + delayTime);
         mPictureString = pictureStr;

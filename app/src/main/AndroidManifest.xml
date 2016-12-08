@@ -20,7 +20,7 @@
 	    		  android:required="false"/>
 	<uses-feature android:name="android.hardware.camera.autofocus" />    
     <application
-        android:name="com.cw.litenote.util.UilApplication"
+        android:name=".util.UilApplication"
         android:allowBackup="true"
 		android:largeHeap="true"        
         android:icon="@drawable/ic_launcher"
@@ -42,32 +42,30 @@
 			   <data android:mimeType="text/*" />
 			</intent-filter>
 		</activity>
-        <activity android:name="com.cw.litenote.note.Note_addText"
+        <activity android:name=".note.Note_addText"
             	  android:windowSoftInputMode="adjustPan" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".main.MainAct" />
         </activity>
-        <activity android:name="com.cw.litenote.note.Note_addCameraImage"/>
-        <activity android:name="com.cw.litenote.note.Note_addCameraVideo"/>
-        <activity android:name="com.cw.litenote.note.Note_addReadyImage"/>
-        <activity android:name="com.cw.litenote.note.Note_addReadyVideo"/>
-        <activity android:name="com.cw.litenote.note.Note_addAudio"
-                  android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".note.Note_addAudio"/>
+        <activity android:name=".note.Note_addCameraImage"/>
+        <activity android:name=".note.Note_addReadyImage"/>
+        <activity android:name=".note.Note_addCameraVideo"/>
+        <activity android:name=".note.Note_addReadyVideo"/>
         <activity android:name=".note.Note_addLink"/>
-        <activity android:name="com.cw.litenote.note.Note_edit" />
+        <activity android:name=".note.Note_edit" />
         <activity android:name=".note.Note"
             	  android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|uiMode" />
         <!-- note: add orientation above, when doing Rotate, activity will not go through the following states: 
              onPause/onSaveInstanceState/onStop/onDestroy/
                                                 onCreate/onStart/onRestoreInstanceState/onResume    -->
         
-        <activity android:name="com.cw.litenote.config.Import_selectedFileAct" />
+        <activity android:name=".config.Import_selectedFileAct" />
         <activity android:name=".util.image.GalleryGridAct" />
         <activity android:name=".util.image.GalleryPagerAct" />
       	<activity android:name=".util.image.SlideshowPlayer"
                   android:theme="@android:style/Theme.NoTitleBar"/>
-
         <receiver
             android:name=".util.DeleteFileAlarmReceiver"
             android:enabled="true" />

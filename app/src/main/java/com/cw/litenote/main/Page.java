@@ -96,6 +96,7 @@ public class Page extends UilListViewBaseFragment
 
     public Page(){}
 
+	// page
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState)
 	{

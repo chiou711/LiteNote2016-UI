@@ -1058,7 +1058,7 @@ public class Note extends FragmentActivity
 				if(picUI == null) {
 					System.out.println("Note / _dispatchTouchEvent / picUI == null");
 					picUI = new Note_UI(act,mPager, mPager.getCurrentItem());
-					picUI.delay_picViewUI(5000,getCurrentPictureString());//1st touch to turn on UI
+					picUI.tempShow_picViewUI(5000,getCurrentPictureString());//1st touch to turn on UI
 				}
 				else
 				{
@@ -1073,20 +1073,20 @@ public class Note extends FragmentActivity
 					{
 						if(Note_UI.isWithinDelay) {
 							if(!Note_UI.showSeekBarProgress)
-								picUI.delay_picViewUI(100,getCurrentPictureString());//2nd touch to turn off UI
+								picUI.tempShow_picViewUI(100,getCurrentPictureString());//2nd touch to turn off UI
 							else
-								picUI.delay_picViewUI(1000, getCurrentPictureString());//2nd touch to turn off UI
+								picUI.tempShow_picViewUI(1000, getCurrentPictureString());//2nd touch to turn off UI
 						}
 						else
-							picUI.delay_picViewUI(5008, getCurrentPictureString());//2nd touch to turn off UI
+							picUI.tempShow_picViewUI(5008, getCurrentPictureString());//2nd touch to turn off UI
 					}
 					else
 					{
 						if(Note_UI.isWithinDelay) {
-							picUI.delay_picViewUI(100,getCurrentPictureString());//2nd touch to turn off UI
+							picUI.tempShow_picViewUI(100,getCurrentPictureString());//2nd touch to turn off UI
 						}
 						else
-							picUI.delay_picViewUI(5001, getCurrentPictureString());//2nd touch to turn off UI
+							picUI.tempShow_picViewUI(5001, getCurrentPictureString());//2nd touch to turn off UI
 					}
 
 				}

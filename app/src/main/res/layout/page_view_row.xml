@@ -166,6 +166,7 @@
 
     <!-- line -->
     <View
+        android:id="@+id/row_divider"
         android:layout_width="match_parent"
         android:layout_height="1dip"
         android:layout_margin="5dp"

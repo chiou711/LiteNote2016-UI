@@ -21,13 +21,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
 /*
  * Note: 
  * Note_common: used to do DB operation
  */
-public class Note_addReadyImage extends Activity {
+public class Note_addReadyImage extends FragmentActivity {
 
     static Long mRowId;
     Note_common note_common;

@@ -33,8 +33,10 @@
     <string name="add_new_chooser_video">Select video</string>    
     <string name="audio_message_no_media_file_is_found">No media file is found</string>
     <string name="audio_message_could_not_open_file">Could not open file</string>
-    <string name="audio_message_searching_media">Searching meida &#8230;</string>
+    <string name="audio_message_searching_media">Searching media &#8230;</string>
     <string name="audio_message_preparing_to_play">Preparing to play &#8230;</string>
     <string name="audio_message_preparing_time_out">Preparing has timed out</string>
     <string name="audio_file_not_found">Audio file not found or not selected</string>
+    <string name="add_new_start">Start adding note</string>
+    <string name="add_new_stop">Stop adding note</string>
 </resources>
