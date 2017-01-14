@@ -337,6 +337,13 @@ class Note_adapter extends FragmentStatePagerAdapter
 			String linkUri = db_page.getNoteLinkUri(position,true);
 			String audioUri = db_page.getNoteAudioUri(position,true);
 
+            ///
+            if(UtilImage.isLandscapePicture(pictureStr))
+                System.out.println("-------------- landscape");
+            else
+                System.out.println("-------------- portrait");
+            ///
+
 			// remove last text web view
 			if (!Note.isPictureMode())
 			{

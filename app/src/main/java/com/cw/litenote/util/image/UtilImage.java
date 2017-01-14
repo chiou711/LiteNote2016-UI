@@ -613,7 +613,7 @@ public class UtilImage
     }
     
     // Get default scale in percent
-    public static int getDefaultSacleInPercent(Activity act)
+    public static int getDefaultScaleInPercent(Activity act)
     {
         // px = dp * (dpi / 160),
         // px:pixel, scale in percent here 
@@ -789,5 +789,17 @@ public class UtilImage
 		 Bitmap bitmap = BitmapFactory.decodeResource(act.getResources(), R.drawable.ic_media_play);
 		 if(bitmap != null)
 			 imageView.setImageBitmap(bitmap);
+	}
+
+	public static boolean isLandscapePicture(String path)
+	{
+		System.out.println("UtilImage / isLandscapePicture / path = " +path);
+		BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inJustDecodeBounds = true;
+
+		BitmapFactory.decodeFile(path.replace("file://",""), options);
+		int width = options.outWidth;
+		int height = options.outHeight;
+		return width > height;
 	}
 }

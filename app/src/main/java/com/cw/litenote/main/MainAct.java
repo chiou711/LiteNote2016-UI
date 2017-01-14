@@ -133,7 +133,7 @@ public class MainAct extends FragmentActivity implements OnBackStackChangedListe
         System.out.println("================start application ==================");
         System.out.println("MainAct / _onCreate");
 
-        UtilImage.getDefaultSacleInPercent(MainAct.this);
+        UtilImage.getDefaultScaleInPercent(MainAct.this);
         
         mAppTitle = getTitle();
         
