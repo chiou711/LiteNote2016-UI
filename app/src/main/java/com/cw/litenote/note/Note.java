@@ -14,6 +14,7 @@ import com.cw.litenote.util.CustomWebView;
 import com.cw.litenote.util.DeleteFileAlarmReceiver;
 import com.cw.litenote.util.audio.AudioPlayer;
 import com.cw.litenote.util.audio.UtilAudio;
+import com.cw.litenote.util.image.UtilImage;
 import com.cw.litenote.util.video.AsyncTaskVideoBitmapPager;
 import com.cw.litenote.util.video.UtilVideo;
 import com.cw.litenote.util.video.VideoPlayer;
@@ -410,14 +411,12 @@ public class Note extends FragmentActivity
 			picUI = null;
 		}
 
-        // set full screen picture for landscape orientation
         setLayoutView();
 
-        // Set view mode: determined by orientation
-        if(Util.isLandscapeOrientation(act))
-            setPictureMode();
+        if(canShowFullScreenPicture())
+            Note.setPictureMode();
         else
-            setViewAllMode();
+            Note.setViewAllMode();
 
         // Set outline of view mode
         setOutline(act);
@@ -438,7 +437,10 @@ public class Note extends FragmentActivity
 
 		isPagerActive = true;
 
-        setViewAllMode();
+        if(canShowFullScreenPicture())
+            Note.setPictureMode();
+        else
+            Note.setViewAllMode();
 
 		setOutline(act);
 	}
@@ -1118,4 +1120,17 @@ public class Note extends FragmentActivity
 	{
 		mPager.setCurrentItem(mPager.getCurrentItem() + 1);
 	}
+
+    // Show full screen picture when device orientation and image orientation are the same
+    boolean canShowFullScreenPicture()
+    {
+        String pictureStr = mDb_page.getNotePictureUri(mCurrentPosition,true);
+        System.out.println(" Note / _canShowFullPicture / pictureStr = " +pictureStr);
+        if( !Util.isEmptyString(pictureStr) &&
+            ( (Util.isLandscapeOrientation(act) && UtilImage.isLandscapePicture(pictureStr) ) ||
+            (!Util.isLandscapeOrientation(act) && !UtilImage.isLandscapePicture(pictureStr))  ) )
+            return true;
+        else
+            return false;
+    }
 }
