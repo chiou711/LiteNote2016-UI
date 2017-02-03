@@ -26,7 +26,7 @@ public class Define {
      * - RELEASE_MODE
      * - DEBUG_MODE
      */
-    public static boolean CODE_MODE = DEBUG_MODE;
+    public static boolean CODE_MODE = DEBUG_MODE; //RELEASE_MODE;
 
     /**
      * Has preferred table

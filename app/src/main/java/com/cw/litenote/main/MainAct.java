@@ -532,6 +532,8 @@ public class MainAct extends FragmentActivity implements OnBackStackChangedListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) //??? java.lang.IllegalStateException: Can not perform this action after onSaveInstanceState
     {
+		MainUi.setMenuUiState(item.getItemId());
+
 		// Go back: check if Configure fragment now
 		if( (item.getItemId() == android.R.id.home ))
     	{

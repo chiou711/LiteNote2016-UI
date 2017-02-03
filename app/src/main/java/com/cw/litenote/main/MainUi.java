@@ -67,7 +67,18 @@ public class MainUi
 
 	static Folder.FolderListener_click folderClick;
 	static Folder.FolderListener_longClick folderLongClick;
-	
+
+	static int mMenuUiState;
+
+	public static int getMenuUiState() {
+		return mMenuUiState;
+	}
+
+	public static void setMenuUiState(int mMenuState) {
+		MainUi.mMenuUiState = mMenuState;
+	}
+
+
 	static void addFolderListeners()
 	{
 		folderClick = new Folder.FolderListener_click();

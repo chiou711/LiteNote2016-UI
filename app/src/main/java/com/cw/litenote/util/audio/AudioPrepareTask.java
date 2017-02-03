@@ -1,5 +1,6 @@
 package com.cw.litenote.util.audio;
 
+import com.cw.litenote.main.MainUi;
 import com.cw.litenote.main.Page;
 import com.cw.litenote.R;
 import com.cw.litenote.note.Note;
@@ -33,6 +34,7 @@ public class AudioPrepareTask extends AsyncTask<String,Integer,String>
 
 		if(Util.isLandscapeOrientation(mActivity) &&
 		   !Page.mDndListView.isShown() &&
+		   (MainUi.getMenuUiState() != R.id.SLIDE_SHOW) && // add for Slide show state
 		   Note.isPictureMode()                )
 		{
 			Util.setImmersiveNavigator(mActivity);
