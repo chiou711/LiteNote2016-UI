@@ -94,12 +94,13 @@ public class MainAct extends FragmentActivity implements OnBackStackChangedListe
         
         mAct = this;
         setContentView(R.layout.drawer);
+		mAppTitle = getTitle();
 
 		// Show Api version
         if(Define.CODE_MODE == Define.DEBUG_MODE)
-		    Toast.makeText(mAct, "API_" + Build.VERSION.SDK_INT , Toast.LENGTH_SHORT).show();
+		    Toast.makeText(mAct, mAppTitle + " API_" + Build.VERSION.SDK_INT , Toast.LENGTH_SHORT).show();
         else
-            Toast.makeText(mAct, "Welcome", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mAct, mAppTitle, Toast.LENGTH_SHORT).show();
 
 		// Release mode: no debug message
         if(Define.CODE_MODE == Define.RELEASE_MODE)
@@ -134,8 +135,6 @@ public class MainAct extends FragmentActivity implements OnBackStackChangedListe
         System.out.println("MainAct / _onCreate");
 
         UtilImage.getDefaultScaleInPercent(MainAct.this);
-        
-        mAppTitle = getTitle();
         
         mFolderTitles = new ArrayList<String>();
 
